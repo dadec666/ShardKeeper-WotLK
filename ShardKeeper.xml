@@ -26,7 +26,7 @@
       <Layer level="ARTWORK">
         <FontString name="ShardKeeperTitle" inherits="GameFontNormalLarge">
           <Anchors><Anchor point="TOP" y="-12"/></Anchors>
-          <Text>ShardKeeper</Text>
+          <Text>ShardKeeper v1.0.5</Text>
         </FontString>
 
         <!-- Row 1: label + input + OK aligned horizontally -->
