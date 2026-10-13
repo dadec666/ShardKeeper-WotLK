@@ -22,13 +22,6 @@
       <BackgroundInsets><AbsInset left="5" right="5" top="5" bottom="5"/></BackgroundInsets>
     </Backdrop>
 
-    <Scripts>
-      <!-- 3.3.5 globals -->
-      <OnMouseDown> if arg1=="LeftButton" then this:StartMoving() end </OnMouseDown>
-      <OnMouseUp> this:StopMovingOrSizing() </OnMouseUp>
-      <OnShow> ShardKeeper_OnShow() </OnShow>
-    </Scripts>
-
     <Layers>
       <Layer level="ARTWORK">
         <FontString name="ShardKeeperTitle" inherits="GameFontNormalLarge">
@@ -63,14 +56,13 @@
 
     <Frames>
       <!-- Input aligned with Row 1 baseline -->
-      <EditBox name="ShardKeeperCapInput" inherits="InputBoxTemplate" autoFocus="false">
+      <EditBox name="ShardKeeperCapInput" inherits="InputBoxTemplate" autoFocus="false" numeric="true">
         <Size x="60" y="20"/>
         <Anchors>
           <Anchor point="LEFT" relativeTo="ShardKeeperCapLabel" relativePoint="RIGHT" x="10" y="0"/>
         </Anchors>
         <MaxLetters>3</MaxLetters>
         <Scripts>
-          <OnTextChanged> this:SetText(string.gsub(this:GetText() or "", "%D", "")); this:HighlightText(0,0) </OnTextChanged>
           <OnEnterPressed> ShardKeeper_OK() </OnEnterPressed>
           <OnEscapePressed> this:ClearFocus() </OnEscapePressed>
         </Scripts>
@@ -92,5 +84,12 @@
         <Scripts><OnClick> this:GetParent():Hide() </OnClick></Scripts>
       </Button>
     </Frames>
+
+    <Scripts>
+      <!-- 3.3.5 globals -->
+      <OnMouseDown> if arg1=="LeftButton" then this:StartMoving() end </OnMouseDown>
+      <OnMouseUp> this:StopMovingOrSizing() </OnMouseUp>
+      <OnShow> ShardKeeper_OnShow() </OnShow>
+    </Scripts>
   </Frame>
 </Ui>
